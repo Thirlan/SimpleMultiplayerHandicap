@@ -11,44 +11,43 @@ country_event = {
 	
 	fire_only_once = yes
 	
-	trigger = {
-		is_ai = no
+	#trigger = {
+	#	is_ai = no
+	#}
+	
+	immediate = {
+		owner = {
+			country_event = {
+				id = smhm.2 days = 182
+			}
+		}
 	}
 
 	option = {
-		name = smhm.1.option1
-		immediate = {
-            add_modifier = {
-                modifier = blessing_of_the_underdog
-                days = 0
-			}
-		}
-
-        owner = {
-            country_event = {
-                id = smhm.2 days = 182
-            }
+		name = smhm.1.a
+        add_modifier = {
+            modifier = blessing_of_the_underdog
+            days = -1
+        }
+        save_event_target_as = smhm_handicap_country
+		event = {
+            id = smhm.3
         }
 	}
-
-	option = {
-		name = smhm.1.option2
 	}
-
 	option = {
-		name = smhm.1.option3
-		immediate = {
-            add_modifier = {
-                modifier = achilles_curse
-                days = 0
-			}
-
-            owner = {
-                country_event = {
-                    id = smhm.2 days = 182
-                }
-            }
-		}
+		name = smhm.1.b
+	}
+	option = {
+		name = smhm.1.c
+        add_modifier = {
+            modifier = achilles_curse
+            days = -1
+        }
+        save_event_target_as = smhm_handicap_country
+		event = {
+            id = smhm.3
+        }
 	}
 }
 
@@ -57,15 +56,15 @@ country_event = {
 	id = smhm.2
 	title = smhm.2.name
 
-    desc = {
-		text = smhm.2.desc1
+	desc = {
+		text = smhm.2.desc_01
 		trigger = {
 			 has_modifier = blessing_of_the_underdog
 		}
 	}
-    
-    desc = {
-		text = smhm.2.desc2
+	
+	desc = {
+		text = smhm.2.desc_02
 		trigger = {
 			 has_modifier = achilles_curse
 		}
@@ -77,14 +76,49 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = smhm.2.option1
+		name = smhm.2.a
 	}
 
 	option = {
-		name = smhm.2.option2
-		remove_modifier = {
-			modifier = blessing_of_the_underdog
-			modifier = achilles_curse
+		name = smhm.2.b
+		remove_modifier = blessing_of_the_underdog
+        remove_modifier = achilles_curse
+	}
+}
+
+# Declare your might
+event = {
+	id = smhm.3
+	title = smhm.3.name
+
+	desc = {
+		text = smhm.3.desc_01
+		trigger = {
+			event_target:smhm_handicap_country = {
+                has_modifier = blessing_of_the_underdog
+            }
 		}
+	}
+	
+	desc = {
+		text = smhm.3.desc_02
+		trigger = {
+            event_target:smhm_handicap_country = {
+                has_modifier = achilles_curse
+            }
+		}
+	}
+	
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	
+	is_triggered_only = yes
+    
+    trigger {
+        is_ai = no
+    }
+
+	option = {
+		name = smhm.3.a
 	}
 }
