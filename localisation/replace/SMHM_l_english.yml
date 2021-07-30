@@ -1,0 +1,19 @@
+﻿l_english:
+
+ achilles_curse: "Achille's curse"
+ achilles_curse_desc: "Multiplayer handicap penalty"
+ 
+ blessing_of_the_underdog: "Blessings of the Underdog"
+ blessing_of_the_underdog_desc: "Multiplayer handicap bonus"
+
+ smhm.1.name: "Test your might!"
+ smhm.1.desc: "Select your skill level below to receive bonuses or penalties:"
+ smhm.1.option1: "I am WEAK"
+ smhm.1.option2: "I am REGULAR"
+ smhm.1.option3: "I am STRONG"
+ 
+ smhm.2.name: "Confirm your might!"
+ smhm.2.desc1: "You chose WEAK. Please reconfirm that this was the correct choice:"
+ smhm.2.desc2: "You chose STRONG. Please reconfirm that this was the correct choice:"
+ smhm.2.option1: "I made the right choice"
+ smhm.2.option2: "I am REGULAR"
