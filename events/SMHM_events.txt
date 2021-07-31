@@ -6,19 +6,19 @@ country_event = {
 	title = smhm.1.name
 	desc = smhm.1.desc
 	
-	picture = GFX_evt_space_station
+	picture = GFX_evt_gladiators
 	show_sound = event_default
 	
 	fire_only_once = yes
 	
-	#trigger = {
-	#	is_ai = no
-	#}
+	trigger = {
+		is_ai = no
+	}
 	
 	immediate = {
 		owner = {
 			country_event = {
-				id = smhm.2 days = 182
+				id = smhm.2 days = 60
 			}
 		}
 	}
@@ -26,14 +26,15 @@ country_event = {
 	option = {
 		name = smhm.1.a
         add_modifier = {
-            modifier = blessing_of_the_underdog
+            modifier = weak_handicap
             days = -1
         }
         save_event_target_as = smhm_handicap_country
-		event = {
-            id = smhm.3
+		every_playable_country = {
+            country_event = {
+                id = smhm.3
+            }
         }
-	}
 	}
 	option = {
 		name = smhm.1.b
@@ -41,12 +42,14 @@ country_event = {
 	option = {
 		name = smhm.1.c
         add_modifier = {
-            modifier = achilles_curse
+            modifier = strong_handicap
             days = -1
         }
         save_event_target_as = smhm_handicap_country
-		event = {
-            id = smhm.3
+        every_playable_country = {
+            country_event = {
+                id = smhm.3
+            }
         }
 	}
 }
@@ -59,18 +62,18 @@ country_event = {
 	desc = {
 		text = smhm.2.desc_01
 		trigger = {
-			 has_modifier = blessing_of_the_underdog
+			 has_modifier = weak_handicap
 		}
 	}
 	
 	desc = {
 		text = smhm.2.desc_02
 		trigger = {
-			 has_modifier = achilles_curse
+			 has_modifier = strong_handicap
 		}
 	}
 	
-	picture = GFX_evt_space_station
+	picture = GFX_evt_gladiators
 	show_sound = event_default
 	
 	is_triggered_only = yes
@@ -81,13 +84,13 @@ country_event = {
 
 	option = {
 		name = smhm.2.b
-		remove_modifier = blessing_of_the_underdog
-        remove_modifier = achilles_curse
+		remove_modifier = weak_handicap
+        remove_modifier = strong_handicap
 	}
 }
 
 # Declare your might
-event = {
+country_event = {
 	id = smhm.3
 	title = smhm.3.name
 
@@ -95,7 +98,7 @@ event = {
 		text = smhm.3.desc_01
 		trigger = {
 			event_target:smhm_handicap_country = {
-                has_modifier = blessing_of_the_underdog
+                has_modifier = weak_handicap
             }
 		}
 	}
@@ -104,21 +107,145 @@ event = {
 		text = smhm.3.desc_02
 		trigger = {
             event_target:smhm_handicap_country = {
-                has_modifier = achilles_curse
+                has_modifier = strong_handicap
             }
 		}
 	}
 	
-	picture = GFX_evt_space_station
+	picture = GFX_evt_alien_propaganda
 	show_sound = event_default
 	
 	is_triggered_only = yes
-    
-    trigger {
-        is_ai = no
-    }
 
 	option = {
 		name = smhm.3.a
 	}
 }
+
+# Winner/Loser start
+event = {
+	id = smhm.4
+	hide_window = yes
+
+	is_triggered_only = yes
+    
+	immediate = {
+		random_playable_country = {
+            limit = {
+                is_ai = no
+            }
+
+            save_event_target_as = smhm_strongest_country
+            save_event_target_as = smhm_weakest_country
+            remove_modifier = blessing_of_the_underdog
+            remove_modifier = icarus_curse
+            
+            every_playable_country = {
+                limit = {
+                    is_ai = no
+                }
+            
+                remove_modifier = blessing_of_the_underdog
+                remove_modifier = icarus_curse
+                if = {
+                    limit = {
+                        relative_power = {
+                            who = event_target:smhm_strongest_country
+                            category = all
+                            value > equivalent
+                        }
+                    }
+                    log = "[owner.GetName] is stronger than [smhm_strongest_country.GetName]"
+                    save_event_target_as = smhm_strongest_country
+                }
+                
+                if = {
+                    limit = {
+                        relative_power = {
+                            who = event_target:smhm_weakest_country
+                            category = all
+                            value < equivalent
+                        }
+                    }
+                    log = "[owner.GetName] is weaker than [smhm_weakest_country.GetName]"
+                    save_event_target_as = smhm_weakest_country
+                }
+            }
+            
+            event_target:smhm_weakest_country = {
+                if = {
+                    limit = {
+                        NOT = {
+                            is_same_empire = event_target:smhm_strongest_country
+                        }
+                    }
+                    country_event = {
+                        id = smhm.5
+                    }
+                }
+            }
+            
+            event_target:smhm_strongest_country = {
+                if = {
+                    limit = {
+                        NOT = {
+                            is_same_empire = event_target:smhm_weakest_country
+                        }
+                    }
+                    country_event = {
+                        id = smhm.6
+                    }
+                }
+            }
+		}
+	}
+}
+
+# Blessings of the Underdog
+country_event = {
+	id = smhm.5
+	title = smhm.5.name
+	desc = smhm.5.desc
+	
+	picture = GFX_evt_open_revolt
+	show_sound = event_default
+	
+	is_triggered_only = yes
+    
+    immediate = {
+        log = "New Weakest [owner.GetName]"
+    }
+
+	option = {
+		name = smhm.5.a
+        add_modifier = {
+            modifier = blessing_of_the_underdog
+            days = -1
+        }
+	}
+}
+
+# Icarus' curse
+country_event = {
+	id = smhm.6
+	title = smhm.6.name
+	desc = smhm.6.desc
+	
+	picture = GFX_evt_atmospheric_flight
+	show_sound = event_default
+	
+	is_triggered_only = yes
+
+    immediate = {
+        log = "New Strongest [owner.GetName]"
+    }
+
+	option = {
+		name = smhm.6.a
+        add_modifier = {
+            modifier = icarus_curse
+            days = -1
+        }
+	}
+}
+
