@@ -1,6 +1,12 @@
 # Triggers when the game starts
+on_game_start = {
+	events = {
+		smhm.1
+	}
+}
+
 on_five_year_pulse = {
 	events = {
-		smhm.4
+		smhm.5
 	}
 }

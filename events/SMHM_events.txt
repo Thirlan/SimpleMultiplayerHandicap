@@ -1,30 +1,45 @@
 namespace = smhm
 
+# Send every player, Test your might event
+event = {
+	id = smhm.1
+	hide_window = yes
+
+	is_triggered_only = yes
+    
+    immediate = {
+        every_playable_country = {
+            limit = {
+                is_ai = no
+            }
+            country_event = {
+                id = smhm.2
+            }
+        }
+    }
+}
+
 # Test your might
 country_event = {
-	id = smhm.1
-	title = smhm.1.name
-	desc = smhm.1.desc
+	id = smhm.2
+	title = smhm.2.name
+	desc = smhm.2.desc
 	
 	picture = GFX_evt_gladiators
 	show_sound = event_default
 	
-	fire_only_once = yes
-	
-	trigger = {
-		is_ai = no
-	}
+	is_triggered_only = yes
 	
 	immediate = {
 		owner = {
 			country_event = {
-				id = smhm.2 days = 60
+				id = smhm.3 days = 60
 			}
 		}
 	}
 
 	option = {
-		name = smhm.1.a
+		name = smhm.2.a
         add_modifier = {
             modifier = weak_handicap
             days = -1
@@ -32,15 +47,15 @@ country_event = {
         save_event_target_as = smhm_handicap_country
 		every_playable_country = {
             country_event = {
-                id = smhm.3
+                id = smhm.4
             }
         }
 	}
 	option = {
-		name = smhm.1.b
+		name = smhm.2.b
 	}
 	option = {
-		name = smhm.1.c
+		name = smhm.2.c
         add_modifier = {
             modifier = strong_handicap
             days = -1
@@ -48,7 +63,7 @@ country_event = {
         save_event_target_as = smhm_handicap_country
         every_playable_country = {
             country_event = {
-                id = smhm.3
+                id = smhm.4
             }
         }
 	}
@@ -56,18 +71,18 @@ country_event = {
 
 # Confirm your might
 country_event = {
-	id = smhm.2
-	title = smhm.2.name
+	id = smhm.3
+	title = smhm.3.name
 
 	desc = {
-		text = smhm.2.desc_01
+		text = smhm.3.desc_01
 		trigger = {
 			 has_modifier = weak_handicap
 		}
 	}
 	
 	desc = {
-		text = smhm.2.desc_02
+		text = smhm.3.desc_02
 		trigger = {
 			 has_modifier = strong_handicap
 		}
@@ -79,11 +94,11 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = smhm.2.a
+		name = smhm.3.a
 	}
 
 	option = {
-		name = smhm.2.b
+		name = smhm.3.b
 		remove_modifier = weak_handicap
         remove_modifier = strong_handicap
 	}
@@ -91,11 +106,11 @@ country_event = {
 
 # Declare your might
 country_event = {
-	id = smhm.3
-	title = smhm.3.name
+	id = smhm.4
+	title = smhm.4.name
 
 	desc = {
-		text = smhm.3.desc_01
+		text = smhm.4.desc_01
 		trigger = {
 			event_target:smhm_handicap_country = {
                 has_modifier = weak_handicap
@@ -104,7 +119,7 @@ country_event = {
 	}
 	
 	desc = {
-		text = smhm.3.desc_02
+		text = smhm.4.desc_02
 		trigger = {
             event_target:smhm_handicap_country = {
                 has_modifier = strong_handicap
@@ -118,13 +133,13 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = smhm.3.a
+		name = smhm.4.a
 	}
 }
 
 # Winner/Loser start
 event = {
-	id = smhm.4
+	id = smhm.5
 	hide_window = yes
 
 	is_triggered_only = yes
@@ -180,7 +195,7 @@ event = {
                         }
                     }
                     country_event = {
-                        id = smhm.5
+                        id = smhm.6
                     }
                 }
             }
@@ -193,7 +208,7 @@ event = {
                         }
                     }
                     country_event = {
-                        id = smhm.6
+                        id = smhm.7
                     }
                 }
             }
@@ -203,9 +218,9 @@ event = {
 
 # Blessings of the Underdog
 country_event = {
-	id = smhm.5
-	title = smhm.5.name
-	desc = smhm.5.desc
+	id = smhm.6
+	title = smhm.6.name
+	desc = smhm.6.desc
 	
 	picture = GFX_evt_open_revolt
 	show_sound = event_default
@@ -217,7 +232,7 @@ country_event = {
     }
 
 	option = {
-		name = smhm.5.a
+		name = smhm.6.a
         add_modifier = {
             modifier = blessing_of_the_underdog
             days = -1
@@ -227,9 +242,9 @@ country_event = {
 
 # Icarus' curse
 country_event = {
-	id = smhm.6
-	title = smhm.6.name
-	desc = smhm.6.desc
+	id = smhm.7
+	title = smhm.7.name
+	desc = smhm.7.desc
 	
 	picture = GFX_evt_atmospheric_flight
 	show_sound = event_default
@@ -241,7 +256,7 @@ country_event = {
     }
 
 	option = {
-		name = smhm.6.a
+		name = smhm.7.a
         add_modifier = {
             modifier = icarus_curse
             days = -1
