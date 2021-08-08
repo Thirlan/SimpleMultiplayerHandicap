@@ -9,6 +9,7 @@ curse_of_icarus = {
 	country_unity_produces_mult = -0.03
 	planet_pop_assembly_mult = -0.03
 	pop_growth_speed = -0.03
+    ship_fire_rate_mult = -0.03
 }
 
 strong_handicap = {
@@ -19,6 +20,7 @@ strong_handicap = {
 	country_unity_produces_mult = -0.05
 	planet_pop_assembly_mult = -0.05
 	pop_growth_speed = -0.05
+    ship_fire_rate_mult = -0.05
 }
 
 blessing_of_the_underdog = {
@@ -29,6 +31,7 @@ blessing_of_the_underdog = {
 	country_unity_produces_mult = 0.03
 	planet_pop_assembly_mult = 0.03
 	pop_growth_speed = 0.03
+    ship_fire_rate_mult = 0.03
 }
 
 weak_handicap = {
@@ -39,4 +42,5 @@ weak_handicap = {
 	country_unity_produces_mult = 0.05
 	planet_pop_assembly_mult = 0.05
 	pop_growth_speed = 0.05
+    ship_fire_rate_mult = 0.05
 }
