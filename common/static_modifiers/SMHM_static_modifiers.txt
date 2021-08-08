@@ -1,7 +1,7 @@
 ##########################################################################
 # Static Modifiers for the Simple Multiplayer Handicap Patch
 ##########################################################################
-icarus_curse = {
+curse_of_icarus = {
 	country_energy_produces_mult = -0.03
 	country_minerals_produces_mult = -0.03
 	country_food_produces_mult = -0.03

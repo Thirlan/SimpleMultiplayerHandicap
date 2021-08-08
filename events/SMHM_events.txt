@@ -137,7 +137,7 @@ country_event = {
 	}
 }
 
-# Winner/Loser start
+# Blessings of the Underdog
 event = {
 	id = smhm.5
 	hide_window = yes
@@ -145,78 +145,162 @@ event = {
 	is_triggered_only = yes
     
 	immediate = {
-		random_playable_country = {
+        log = "Finding Weakest Player"
+        
+        # Find if a player already has the blessing_of_the_underdog
+        every_playable_country = {
+            limit = {
+                is_ai = no
+                has_modifier = blessing_of_the_underdog
+            }
+            log = "[owner.GetName] currently has the blessing_of_the_underdog"
+            save_event_target_as = smhm_blessed_player
+        }
+        
+        # Pick a random country to start the algorithm
+        random_playable_country = {
             limit = {
                 is_ai = no
             }
-
-            save_event_target_as = smhm_strongest_country
-            save_event_target_as = smhm_weakest_country
-            remove_modifier = blessing_of_the_underdog
-            remove_modifier = icarus_curse
-            
-            every_playable_country = {
-                limit = {
-                    is_ai = no
-                }
-            
-                remove_modifier = blessing_of_the_underdog
-                remove_modifier = icarus_curse
-                if = {
-                    limit = {
-                        relative_power = {
-                            who = event_target:smhm_strongest_country
-                            category = all
-                            value > equivalent
-                        }
-                    }
-                    log = "[owner.GetName] is stronger than [smhm_strongest_country.GetName]"
-                    save_event_target_as = smhm_strongest_country
-                }
-                
-                if = {
-                    limit = {
-                        relative_power = {
-                            who = event_target:smhm_weakest_country
-                            category = all
-                            value < equivalent
-                        }
-                    }
-                    log = "[owner.GetName] is weaker than [smhm_weakest_country.GetName]"
-                    save_event_target_as = smhm_weakest_country
+            log = "randomly starting with [owner.GetName] as weakest"
+            save_event_target_as = smhm_weakest_player
+        }
+        
+        # Find the weakest player
+        every_playable_country = {
+            limit = {
+                is_ai = no
+                NOT = {
+                    is_same_empire = event_target:smhm_weakest_player
                 }
             }
+            log = "comparing with [owner.GetName]"
             
-            event_target:smhm_weakest_country = {
+            if = {
+                limit = {
+                    relative_power = {
+                        who = event_target:smhm_weakest_player
+                        category = all
+                        value < equivalent
+                    }
+                }
+                log = "[owner.GetName] is weaker than [smhm_weakest_player.GetName]"
+                save_event_target_as = smhm_weakest_player
+            }
+        }
+        
+        # Let's now determine if we truly have a weak player.
+        # If they are weak there should be NO player equivalent to them
+        every_playable_country = {
+            limit = {
+                is_ai = no
+                NOT = {
+                    is_same_empire = event_target:smhm_weakest_player
+                }
+            }
+            log = "comparing with [owner.GetName]"
+            
+            if = {
+                limit = {
+                    relative_power = {
+                        who = event_target:smhm_weakest_player
+                        category = all
+                        value = equivalent
+                    }
+                }
+                log = "[owner.GetName] is equivalent to [smhm_weakest_player.GetName]"
+                save_event_target_as = smhm_equal_to_weakest_player
+            }
+        }
+        
+        # We now have the following information:
+        # smhm_blessed_player (if any)
+        # smhm_weakest_player
+        # smhm_equal_to_weakest_player (if any)
+        #
+        # These extra pieces of information are critical because
+        # the comparison is not granular enough to determine true
+        # weakest
+        
+        # First and foremost, does someone have the blessing
+        if = {
+            limit = {
+                exists = event_target:smhm_blessed_player
+            }
+            
+            # Someone has the blessing. Are they still the weakest player?
+            if = {
+                limit = {
+                    event_target:smhm_blessed_player = {
+                        is_same_empire = event_target:smhm_weakest_player
+                    }
+                }
+                
+                # They still appear to be the weakest, but are they truly weak?
+                # Check if there is anyone equal to them
                 if = {
                     limit = {
-                        NOT = {
-                            is_same_empire = event_target:smhm_strongest_country
+                        exists = event_target:smhm_equal_to_weakest_player
+                    }
+                    
+                    # There exists someone equal to them. They are no longer truly
+                    # weak. Strip them of their powers
+                    event_target:smhm_blessed_player = {
+                        country_event = {
+                            id = smhm.7
                         }
                     }
+                }
+            }
+            else {
+                # The player with the blessing is no longer the weakest
+                # strip them of the blessing
+                event_target:smhm_blessed_player = {
+                    country_event = {
+                        id = smhm.7
+                    }
+                }
+                
+                # There is a new weak player, but are they truly weak?
+                # Check if there is anyone equal to them
+                if = {
+                    limit = {
+                        exists = event_target:smhm_equal_to_weakest_player
+                    }
+                    # someone is equal to them, do nothing
+                }
+                else {
+                    # They are truly the weakest
+                    event_target:smhm_weakest_player = {
+                        country_event = {
+                            id = smhm.6
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            # No one has the blessing but there is a new weak player.
+            # Are they truly weak? Check if there is anyone equal to them
+            if = {
+                limit = {
+                    exists = event_target:smhm_equal_to_weakest_player
+                }
+                # someone is equal to them, do nothing
+            }
+            else {
+                # They are truly the weakest
+                event_target:smhm_weakest_player = {
                     country_event = {
                         id = smhm.6
                     }
                 }
             }
-            
-            event_target:smhm_strongest_country = {
-                if = {
-                    limit = {
-                        NOT = {
-                            is_same_empire = event_target:smhm_weakest_country
-                        }
-                    }
-                    country_event = {
-                        id = smhm.7
-                    }
-                }
-            }
-		}
+        }
 	}
 }
 
-# Blessings of the Underdog
+# Blessings of the Underdog given
 country_event = {
 	id = smhm.6
 	title = smhm.6.name
@@ -240,11 +324,247 @@ country_event = {
 	}
 }
 
-# Icarus' curse
+# Blessings of the Underdog fades
 country_event = {
 	id = smhm.7
 	title = smhm.7.name
 	desc = smhm.7.desc
+	
+	picture = GFX_evt_announcement
+	show_sound = event_default
+	
+	is_triggered_only = yes
+
+    immediate = {
+        remove_modifier = blessing_of_the_underdog
+        log = "No longer weakest [owner.GetName]"
+    }
+
+	option = {
+		name = smhm.7.a
+	}
+}
+
+# Strongest Player
+event = {
+	id = smhm.8
+	hide_window = yes
+
+	is_triggered_only = yes
+    
+	immediate = {
+        log = "Finding Strongest Player"
+        
+        # Find if a player already has the curse_of_icarus
+        every_playable_country = {
+            limit = {
+                is_ai = no
+                has_modifier = curse_of_icarus
+            }
+            log = "[owner.GetName] currently has the curse_of_icarus"
+            save_event_target_as = smhm_cursed_player
+        }
+        
+        # Pick a random player to start the algorithm
+        random_playable_country = {
+            limit = {
+                is_ai = no
+            }
+            log = "randomly starting with [owner.GetName] as strongest"
+            save_event_target_as = smhm_strongest_player
+            save_event_target_as = smhm_strongest_country
+        }
+        
+        # Find the strongest player
+        every_playable_country = {
+            limit = {
+                is_ai = no
+                NOT = {
+                    is_same_empire = event_target:smhm_strongest_country
+                }
+            }
+            log = "comparing with [owner.GetName]"
+            
+            if = {
+                limit = {
+                    relative_power = {
+                        who = event_target:smhm_strongest_player
+                        category = all
+                        value > equivalent
+                    }
+                }
+                log = "[owner.GetName] is stronger than [smhm_strongest_player.GetName]"
+                save_event_target_as = smhm_strongest_player
+                save_event_target_as = smhm_strongest_country
+            }
+        }
+        
+        # Let's now determine if we truly have a strong player.
+        # If they are strong there should be NO COUNTRY equivalent to them
+        every_playable_country = {
+            limit = {
+                NOT = {
+                    is_same_empire = event_target:smhm_strongest_player
+                }
+            }
+            log = "comparing with [owner.GetName]"
+            
+            if = {
+                limit = {
+                    relative_power = {
+                        who = event_target:smhm_strongest_player
+                        category = all
+                        value = equivalent
+                    }
+                }
+                log = "[owner.GetName] is equivalent to [smhm_strongest_player.GetName]"
+                save_event_target_as = smhm_equal_to_strongest_player
+            }
+        }
+        
+        # Find the strongest country (not necessarily a player)
+        every_playable_country = {
+            limit = {
+                NOT = {
+                    is_same_empire = event_target:smhm_strongest_country
+                }
+            }
+            log = "comparing with [owner.GetName]"
+            
+            if = {
+                limit = {
+                    relative_power = {
+                        who = event_target:smhm_strongest_country
+                        category = all
+                        value > equivalent
+                    }
+                }
+                log = "[owner.GetName] is stronger than [smhm_strongest_country.GetName]"
+                save_event_target_as = smhm_strongest_country
+            }
+        }
+        
+        # We now have the following information:
+        #
+        # smhm_cursed_player (if any)
+        # smhm_strongest_player
+        # smhm_equal_to_strongest_player (if any)
+        # smhm_strongest_country
+        #
+        # These extra pieces of information are critical because
+        # the comparison is not granular enough to determine true
+        # stongest
+        
+        # First and foremost, does someone have the curse?
+        if = {
+            limit = {
+                exists = event_target:smhm_cursed_player
+            }
+            
+            # Someone has the curse. Are they still the strongest country?
+            if = {
+                limit = {
+                    event_target:smhm_cursed_player = {
+                        is_same_empire = event_target:smhm_strongest_country
+                    }
+                }
+                
+                # They still appear to be the strongest, but are they truly strong?
+                # Check if there is anyone equal to them
+                if = {
+                    limit = {
+                        exists = event_target:smhm_equal_to_strongest_player
+                    }
+                    
+                    # There exists someone equal to them. They are no longer truly
+                    # strong. Strip them of their curse
+                    event_target:smhm_cursed_player = {
+                        country_event = {
+                            id = smhm.10
+                        }
+                    }
+                }
+            }
+            else {
+                # The player with the curse is no longer the strongest
+                # Strip them of their curse
+                event_target:smhm_cursed_player = {
+                    remove_modifier = curse_of_icarus
+                    country_event = {
+                        id = smhm.10
+                    }
+                }
+                
+                # There is a new strong player, but are they truly strong?
+                # Check if they are the strongest of all countries
+                if = {
+                    limit = {
+                        event_target:smhm_strongest_player = {
+                            is_same_empire = event_target:smhm_strongest_country
+                        }
+                    }
+                    
+                    # Is there anyone equal to them?
+                    if = {
+                        limit = {
+                            exists = event_target:smhm_equal_to_strongest_player
+                        }
+                        
+                        # Someone was equal to them. Do nothing
+                    }
+                    else {
+                        # They are truly the strongest
+                        event_target:smhm_strongest_player = {
+                            country_event = {
+                                id = smhm.9
+                            }
+                        }
+                    }
+                }
+                else {
+                    # There was a stronger country than them
+                }
+            }
+        }
+        else {
+            # There is a new strong player, but are they truly strong?
+            # Check if they are the strongest of all countries
+            if = {
+                limit = {
+                    event_target:smhm_strongest_player = {
+                        is_same_empire = event_target:smhm_strongest_country
+                    }
+                }
+                
+                # Is there anyone equal to them?
+                if = {
+                    limit = {
+                        exists = event_target:smhm_equal_to_strongest_player
+                    }
+                    
+                    # Someone was equal to them. Do nothing
+                }
+                else {
+                    # They are truly the strongest
+                    event_target:smhm_strongest_player = {
+                        country_event = {
+                            id = smhm.9
+                        }
+                    }
+                }
+            }
+            else {
+                # There was a stronger country than them
+            }
+        }
+	}
+}
+
+# Icarus' curse
+country_event = {
+	id = smhm.9
+	title = smhm.9.name
+	desc = smhm.9.desc
 	
 	picture = GFX_evt_atmospheric_flight
 	show_sound = event_default
@@ -256,11 +576,32 @@ country_event = {
     }
 
 	option = {
-		name = smhm.7.a
+		name = smhm.9.a
         add_modifier = {
-            modifier = icarus_curse
+            modifier = curse_of_icarus
             days = -1
         }
+	}
+}
+
+# Icarus' curse fades
+country_event = {
+	id = smhm.10
+	title = smhm.10.name
+	desc = smhm.10.desc
+	
+	picture = GFX_evt_atmospheric_flight
+	show_sound = event_default
+	
+	is_triggered_only = yes
+
+    immediate = {
+        remove_modifier = curse_of_icarus
+        log = "No longer strongest [owner.GetName]"
+    }
+
+	option = {
+		name = smhm.10.a
 	}
 }
 
