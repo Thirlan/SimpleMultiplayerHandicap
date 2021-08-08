@@ -9,5 +9,6 @@ on_game_start = {
 on_monthly_pulse = {
 	events = {
 		smhm.5
+        smhm.8
 	}
 }

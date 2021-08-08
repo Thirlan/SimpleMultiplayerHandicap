@@ -87,10 +87,10 @@ country_event = {
 			 has_modifier = strong_handicap
 		}
 	}
-	
+
 	picture = GFX_evt_gladiators
 	show_sound = event_default
-	
+
 	is_triggered_only = yes
 
 	option = {
@@ -117,7 +117,7 @@ country_event = {
             }
 		}
 	}
-	
+
 	desc = {
 		text = smhm.4.desc_02
 		trigger = {
@@ -143,10 +143,10 @@ event = {
 	hide_window = yes
 
 	is_triggered_only = yes
-    
+
 	immediate = {
         log = "Finding Weakest Player"
-        
+
         # Find if a player already has the blessing_of_the_underdog
         every_playable_country = {
             limit = {
@@ -156,16 +156,15 @@ event = {
             log = "[owner.GetName] currently has the blessing_of_the_underdog"
             save_event_target_as = smhm_blessed_player
         }
-        
+
         # Pick a random country to start the algorithm
         random_playable_country = {
             limit = {
                 is_ai = no
             }
-            log = "randomly starting with [owner.GetName] as weakest"
             save_event_target_as = smhm_weakest_player
         }
-        
+
         # Find the weakest player
         every_playable_country = {
             limit = {
@@ -174,8 +173,7 @@ event = {
                     is_same_empire = event_target:smhm_weakest_player
                 }
             }
-            log = "comparing with [owner.GetName]"
-            
+
             if = {
                 limit = {
                     relative_power = {
@@ -184,10 +182,10 @@ event = {
                         value < equivalent
                     }
                 }
-                log = "[owner.GetName] is weaker than [smhm_weakest_player.GetName]"
                 save_event_target_as = smhm_weakest_player
             }
         }
+        log = "Weakest player [smhm_weakest_player.GetName]"
         
         # Let's now determine if we truly have a weak player.
         # If they are weak there should be NO player equivalent to them
@@ -198,7 +196,6 @@ event = {
                     is_same_empire = event_target:smhm_weakest_player
                 }
             }
-            log = "comparing with [owner.GetName]"
             
             if = {
                 limit = {
@@ -208,7 +205,6 @@ event = {
                         value = equivalent
                     }
                 }
-                log = "[owner.GetName] is equivalent to [smhm_weakest_player.GetName]"
                 save_event_target_as = smhm_equal_to_weakest_player
             }
         }
@@ -235,6 +231,7 @@ event = {
                         is_same_empire = event_target:smhm_weakest_player
                     }
                 }
+                log = "Player with blessing [smhm_weakest_player.GetName] is apparently weakest?"
                 
                 # They still appear to be the weakest, but are they truly weak?
                 # Check if there is anyone equal to them
@@ -242,6 +239,8 @@ event = {
                     limit = {
                         exists = event_target:smhm_equal_to_weakest_player
                     }
+                    
+                    log = "No other player is equivalent. [smhm_weakest_player.GetName] is weakest"
                     
                     # There exists someone equal to them. They are no longer truly
                     # weak. Strip them of their powers
@@ -251,8 +250,11 @@ event = {
                         }
                     }
                 }
+                else = {
+                    log = "Player with blessing [smhm_weakest_player.GetName] is still weakest. Doing nothing."
+                }
             }
-            else {
+            else = {
                 # The player with the blessing is no longer the weakest
                 # strip them of the blessing
                 event_target:smhm_blessed_player = {
@@ -267,9 +269,9 @@ event = {
                     limit = {
                         exists = event_target:smhm_equal_to_weakest_player
                     }
-                    # someone is equal to them, do nothing
+                    log = "Weakest player [smhm_weakest_player.GetName] is equivalent to [smhm_equal_to_weakest_player.GetName]. Doing nothing."
                 }
-                else {
+                else = {
                     # They are truly the weakest
                     event_target:smhm_weakest_player = {
                         country_event = {
@@ -279,16 +281,16 @@ event = {
                 }
             }
         }
-        else {
+        else = {
             # No one has the blessing but there is a new weak player.
             # Are they truly weak? Check if there is anyone equal to them
             if = {
                 limit = {
                     exists = event_target:smhm_equal_to_weakest_player
                 }
-                # someone is equal to them, do nothing
+                log = "Weakest player [smhm_weakest_player.GetName] is equivalent to [smhm_equal_to_weakest_player.GetName]. Doing nothing."
             }
-            else {
+            else = {
                 # They are truly the weakest
                 event_target:smhm_weakest_player = {
                     country_event = {
@@ -370,7 +372,6 @@ event = {
             limit = {
                 is_ai = no
             }
-            log = "randomly starting with [owner.GetName] as strongest"
             save_event_target_as = smhm_strongest_player
             save_event_target_as = smhm_strongest_country
         }
@@ -383,7 +384,6 @@ event = {
                     is_same_empire = event_target:smhm_strongest_country
                 }
             }
-            log = "comparing with [owner.GetName]"
             
             if = {
                 limit = {
@@ -393,11 +393,11 @@ event = {
                         value > equivalent
                     }
                 }
-                log = "[owner.GetName] is stronger than [smhm_strongest_player.GetName]"
                 save_event_target_as = smhm_strongest_player
                 save_event_target_as = smhm_strongest_country
             }
         }
+        log = "Strongest player is [smhm_strongest_player.GetName]"
         
         # Let's now determine if we truly have a strong player.
         # If they are strong there should be NO COUNTRY equivalent to them
@@ -407,7 +407,6 @@ event = {
                     is_same_empire = event_target:smhm_strongest_player
                 }
             }
-            log = "comparing with [owner.GetName]"
             
             if = {
                 limit = {
@@ -417,7 +416,6 @@ event = {
                         value = equivalent
                     }
                 }
-                log = "[owner.GetName] is equivalent to [smhm_strongest_player.GetName]"
                 save_event_target_as = smhm_equal_to_strongest_player
             }
         }
@@ -429,7 +427,6 @@ event = {
                     is_same_empire = event_target:smhm_strongest_country
                 }
             }
-            log = "comparing with [owner.GetName]"
             
             if = {
                 limit = {
@@ -439,10 +436,10 @@ event = {
                         value > equivalent
                     }
                 }
-                log = "[owner.GetName] is stronger than [smhm_strongest_country.GetName]"
                 save_event_target_as = smhm_strongest_country
             }
         }
+        log = "Strongest country is [smhm_strongest_country.GetName]"
         
         # We now have the following information:
         #
@@ -476,6 +473,8 @@ event = {
                         exists = event_target:smhm_equal_to_strongest_player
                     }
                     
+                    log = "Player with curse [smhm_cursed_player.GetName] is equivalent to [smhm_equal_to_strongest_player.GetName]"
+                    
                     # There exists someone equal to them. They are no longer truly
                     # strong. Strip them of their curse
                     event_target:smhm_cursed_player = {
@@ -484,8 +483,11 @@ event = {
                         }
                     }
                 }
+                else = {
+                    log = "Player with curse [smhm_cursed_player.GetName] is still the strongest country. Doing nothing."
+                }
             }
-            else {
+            else = {
                 # The player with the curse is no longer the strongest
                 # Strip them of their curse
                 event_target:smhm_cursed_player = {
@@ -510,9 +512,9 @@ event = {
                             exists = event_target:smhm_equal_to_strongest_player
                         }
                         
-                        # Someone was equal to them. Do nothing
+                        log = "Strongest player [smhm_cursed_player.GetName] is equivalent to [smhm_equal_to_strongest_player.GetName]. Doing nothing."
                     }
-                    else {
+                    else = {
                         # They are truly the strongest
                         event_target:smhm_strongest_player = {
                             country_event = {
@@ -521,12 +523,12 @@ event = {
                         }
                     }
                 }
-                else {
-                    # There was a stronger country than them
+                else = {
+                    log = "Strongest player [smhm_strongest_player.GetName] is weaker than Strongest country [smhm_strongest_country.GetName]. Doing nothing."
                 }
             }
         }
-        else {
+        else = {
             # There is a new strong player, but are they truly strong?
             # Check if they are the strongest of all countries
             if = {
@@ -542,9 +544,9 @@ event = {
                         exists = event_target:smhm_equal_to_strongest_player
                     }
                     
-                    # Someone was equal to them. Do nothing
+                    log = "Strongest player [smhm_strongest_player.GetName] is equivalent to [smhm_equal_to_strongest_player.GetName]. Doing nothing."
                 }
-                else {
+                else = {
                     # They are truly the strongest
                     event_target:smhm_strongest_player = {
                         country_event = {
@@ -553,8 +555,8 @@ event = {
                     }
                 }
             }
-            else {
-                # There was a stronger country than them
+            else = {
+                log = "Strongest player [smhm_strongest_player.GetName] is weaker than Strongest country [smhm_strongest_country.GetName]. Doing nothing."
             }
         }
 	}
@@ -590,7 +592,7 @@ country_event = {
 	title = smhm.10.name
 	desc = smhm.10.desc
 	
-	picture = GFX_evt_atmospheric_flight
+	picture = GFX_evt_alien_propaganda
 	show_sound = event_default
 	
 	is_triggered_only = yes
