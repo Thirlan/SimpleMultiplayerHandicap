@@ -5,8 +5,8 @@ on_game_start = {
 	}
 }
 
-#on_five_year_pulse = {
-on_monthly_pulse = {
+#on_monthly_pulse = {
+on_five_year_pulse = {
 	events = {
 		smhm.5
         smhm.8

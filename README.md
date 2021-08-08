@@ -22,4 +22,4 @@ In addition to these, if a player picks weak or strong it will be broadcasted to
 
 Lastly, players will be given a second chance to confirm if they picked Weak or Strong after about 3 months. Just to make sure they didn't misclick.
 
-On top of these handicaps, every 5 year the game will give a another -3% penalty to the strongest player once he is stronger than all the AI empires and a 3% bonus to the weakest player among all weakest players. This will help further adjust the handicaps in case someone misjudged how strong or weak they are.
+On top of these handicaps, every 5 years the game will give a another -3% penalty to the strongest player once he is stronger than all the AI empires and a 3% bonus to the weakest player. This will help further adjust the handicaps in case someone misjudged how strong or weak they are.
