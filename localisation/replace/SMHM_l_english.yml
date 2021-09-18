@@ -25,8 +25,8 @@
  smhm.3.b: "Change me to REGULAR"
  
  smhm.4.name: "Declare your might!"
- smhm.4.desc_01: "[smhm_handicap_country.GetName] has been given §G$weak_handicap$."
- smhm.4.desc_02: "[smhm_handicap_country.GetName] has been given §R$strong_handicap$."
+ smhm.4.desc_01: "[smhm_handicap_country.GetRealName] has been given §G$weak_handicap$."
+ smhm.4.desc_02: "[smhm_handicap_country.GetRealName] has been given §R$strong_handicap$."
  smhm.4.a: "So be it!"
 
  smhm.6.name: "Blessings of the Underdog"
@@ -38,7 +38,7 @@
  smhm.7.a: "The going will get tough..."
 
  smhm.9.name: "Curse of Icarus"
- smhm.9.desc: "Your people people have become despondent and lacklustre. Success has come to easy and they have lost the spark in their eyes."
+ smhm.9.desc: "Your people have become despondent and lacklustre. Success has come to easy and they have lost the spark in their eyes."
  smhm.9.a: "How unfortunate..."
  
  smhm.10.name: "Curse of Icarus Fades"
