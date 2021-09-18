@@ -1,3 +1,17 @@
+# 2021/09/18
+
+## 0.1.0
+
+* Simple fixes to make it 3.1 Lem compliant
+
+# 2021/08/12
+
+## 0.0.6
+
+* Adding alloys to the penalties
+
+* Empire name will be properly declared during "Declare Your Might" even if a country doesn't know that Empire.
+
 # 2021/08/08
 
 ## 0.0.5
