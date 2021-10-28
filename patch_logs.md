@@ -1,3 +1,9 @@
+# 2021/10/27
+
+## 0.1.2
+
+* Tweaked penalties and bonuses up by 1%
+
 # 2021/09/18
 
 ## 0.1.0

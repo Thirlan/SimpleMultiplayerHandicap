@@ -39,11 +39,11 @@ country_event = {
 		save_event_target_as = smhm_handicap_country
 		every_playable_country = {
 			country_event = {
-				id = smhm.3 days = 60
-			}
-			country_event = {
 				id = smhm.4
 			}
+		}
+		country_event = {
+			id = smhm.3 days = 60
 		}
 	}
 	option = {
@@ -58,11 +58,11 @@ country_event = {
 		save_event_target_as = smhm_handicap_country
 		every_playable_country = {
 			country_event = {
-				id = smhm.3 days = 60
-			}
-			country_event = {
 				id = smhm.4
 			}
+		}
+		country_event = {
+			id = smhm.3 days = 60
 		}
 	}
 }
