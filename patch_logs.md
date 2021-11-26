@@ -1,3 +1,13 @@
+# 2021/11/26
+
+## 1.0.0
+
+Mod has been out long enough and is stable enough to have it upgraded to 1.0.0 as part of the Aquatics release.
+
+* Changed bonuses for Weak Handicap to +7% from 6%
+* Changed bonuses for Blessings of the Underdog to +7% from 4%
+* Changed penalties for Curse of Icarus to -6% from -4%
+
 # 2021/10/27
 
 ## 0.1.2
