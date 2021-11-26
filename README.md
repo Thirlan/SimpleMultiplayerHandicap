@@ -10,16 +10,16 @@ The mod provides players on game start with an event that allows them to decide 
 2. Regular
 3. Strong
 
-Choosing Weak will give the player a +5% boost to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
+Choosing Weak will give the player a +7% boost to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
 
 Choosing Regular will give the player nothing.
 
-Choosing Strong will give the player a -5% penalty to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
+Choosing Strong will give the player a -6% penalty to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
 
-The differences are such that the strong and weak players have a 12% gap between each other so that the weak players have a fighting chance against stronger players.
+The differences are such that the strong and weak players have a 13% gap between each other so that the weak players have a fighting chance against stronger players.
 
 In addition to these, if a player picks weak or strong it will be broadcasted to the rest of the players so that everyone knows that someone picked their appropriate handicaps.
 
 Lastly, players will be given a second chance to confirm if they picked Weak or Strong after about 3 months. Just to make sure they didn't misclick.
 
-On top of these handicaps, every 5 years the game will give a another -4% penalty to the strongest player once he is stronger than all the AI empires and a 4% bonus to the weakest player. This will help further adjust the handicaps in case someone misjudged how strong or weak they are.
+On top of these handicaps, every 5 years the game will give another -6% penalty to the strongest player once he is stronger than all the AI empires and a 7% bonus to the weakest player. This will help further adjust the handicaps in case someone misjudged how strong or weak they are.
