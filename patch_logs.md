@@ -1,3 +1,7 @@
+# 2022/03/02
+
+Upgrading to Stellaris version 3.3.*
+
 # 2021/11/26
 
 ## 1.0.0
