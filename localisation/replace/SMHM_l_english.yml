@@ -3,13 +3,13 @@
  curse_of_icarus: "Curse of Icarus"
  curse_of_icarus_desc: "Multiplayer handicap penalty"
  
- strong_handicap: "Strong handicap"
+ strong_handicap: "Strong Handicap"
  strong_handicap_desc: "Multiplayer handicap penalty"
  
  blessing_of_the_underdog: "Blessings of the Underdog"
  blessing_of_the_underdog_desc: "Multiplayer handicap bonus"
  
- weak_handicap: "Weak handicap"
+ weak_handicap: "Weak Handicap"
  weak_handicap_desc: "Multiplayer handicap bonus"
 
  smhm.2.name: "Test your might!"
@@ -28,6 +28,10 @@
  smhm.4.desc_01: "[smhm_handicap_country.GetRealName] has been given §G$weak_handicap$."
  smhm.4.desc_02: "[smhm_handicap_country.GetRealName] has been given §R$strong_handicap$."
  smhm.4.a: "So be it!"
+ 
+ smhm.11.name: "Retract your might!"
+ smhm.11.desc_01: "[smhm_handicap_country.GetRealName] has retracted their handicap."
+ smhm.11.a: "So be it!"
 
  smhm.6.name: "Blessings of the Underdog"
  smhm.6.desc: "Your people, finding themselves at the bottom of the galactic order, have become impassioned to change their fate!"
@@ -38,7 +42,7 @@
  smhm.7.a: "The going will get tough..."
 
  smhm.9.name: "Curse of Icarus"
- smhm.9.desc: "Your people have become despondent and lacklustre. Success has come to easy and they have lost the spark in their eyes."
+ smhm.9.desc: "Your people have become despondent and lacklustre. Success has come too easy and they have lost the spark in their eyes."
  smhm.9.a: "How unfortunate..."
  
  smhm.10.name: "Curse of Icarus Fades"

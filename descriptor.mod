@@ -1,6 +1,6 @@
-version="1.1.0"
+version="1.2.0"
 tags={
 	"Balance"
 }
 name="Simple Multiplayer Handicap Mod"
-supported_version="3.3.*"
+supported_version="3.4.*"

@@ -10,11 +10,11 @@ The mod provides players on game start with an event that allows them to decide 
 2. Regular
 3. Strong
 
-Choosing Weak will give the player a +7% boost to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
+Choosing Weak will give the player a +7% boost to Energy, Minerals, Food, Unity, Research, Alloys, Consumer Goods, Population growth and Ship fire rate.
 
 Choosing Regular will give the player nothing.
 
-Choosing Strong will give the player a -6% penalty to Energy, Minerals, Food, Unity, Research, Population growth and Ship fire rate.
+Choosing Strong will give the player a -6% penalty to Energy, Minerals, Food, Unity, Research, Alloys, Consumer Goods, Population growth and Ship fire rate.
 
 The differences are such that the strong and weak players have a 13% gap between each other so that the weak players have a fighting chance against stronger players.
 

@@ -1,4 +1,17 @@
+# 2022/05/13
+
+## 1.2.0
+
+* Upgrading for Stellaris version 3.4.*
+* Added Consumer goods to the penalties and bonuses
+* Standardized capitalizations
+* Players will be informed if someone removes their handicap
+
+- Thanks to Odessian
+
 # 2022/03/02
+
+## 1.1.0
 
 Upgrading to Stellaris version 3.3.*
 
