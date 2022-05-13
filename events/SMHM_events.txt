@@ -99,6 +99,12 @@ country_event = {
 		name = smhm.3.b
 		remove_modifier = weak_handicap
 		remove_modifier = strong_handicap
+		save_event_target_as = smhm_handicap_country
+		every_playable_country = {
+			country_event = {
+				id = smhm.11
+			}
+		}
 	}
 }
 
@@ -602,6 +608,25 @@ country_event = {
 
 	option = {
 		name = smhm.10.a
+	}
+}
+
+# Retract your might
+country_event = {
+	id = smhm.11
+	title = smhm.11.name
+
+	desc = {
+		text = smhm.11.desc_01
+	}
+	
+	picture = GFX_evt_alien_propaganda
+	show_sound = event_default
+	
+	is_triggered_only = yes
+
+	option = {
+		name = smhm.11.a
 	}
 }
 
