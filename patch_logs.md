@@ -1,3 +1,9 @@
+# 2023/05/11
+
+## 1.6.0
+
+Nothing done, simply moving up the version and simple tests to confirm the mod still works with 3.8
+
 # 2023/04/01
 
 ## 1.5.0
