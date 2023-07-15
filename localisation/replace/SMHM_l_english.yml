@@ -1,16 +1,40 @@
 ﻿l_english:
 
- curse_of_icarus: "Curse of Icarus"
- curse_of_icarus_desc: "Multiplayer handicap penalty"
+ curse_of_icarus_technology: "Curse of Icarus Technology"
+ curse_of_icarus_technology_desc: "Multiplayer Technology handicap penalty"
+
+ curse_of_icarus_economy: "Curse of Icarus Economy"
+ curse_of_icarus_economy_desc: "Multiplayer Economy handicap penalty"
+
+ curse_of_icarus_military: "Curse of Icarus Military"
+ curse_of_icarus_military_desc: "Multiplayer Military handicap penalty"
  
- strong_handicap: "Strong Handicap"
- strong_handicap_desc: "Multiplayer handicap penalty"
+ strong_handicap_technology: "Strong Handicap Technology"
+ strong_handicap_technology_desc: "Multiplayer handicap penalty"
  
- blessing_of_the_underdog: "Blessings of the Underdog"
- blessing_of_the_underdog_desc: "Multiplayer handicap bonus"
+ strong_handicap_economy: "Strong Handicap Economy"
+ strong_handicap_economy_desc: "Multiplayer handicap penalty"
  
- weak_handicap: "Weak Handicap"
- weak_handicap_desc: "Multiplayer handicap bonus"
+ strong_handicap_military: "Strong Handicap Military"
+ strong_handicap_military_desc: "Multiplayer handicap penalty"
+ 
+ blessing_of_the_underdog_technology: "Blessings of the Underdog Technology"
+ blessing_of_the_underdog_technology_desc: "Multiplayer handicap Technology bonus"
+ 
+ blessing_of_the_underdog_economy: "Blessings of the Underdog Economy"
+ blessing_of_the_underdog_economy_desc: "Multiplayer handicap Economy bonus"
+ 
+ blessing_of_the_underdog_military: "Blessings of the Underdog Military"
+ blessing_of_the_underdog_military_desc: "Multiplayer handicap Military bonus"
+ 
+ weak_handicap_technology: "Weak Handicap Technology"
+ weak_handicap_technology_desc: "Multiplayer handicap bonus"
+ 
+ weak_handicap_economy: "Weak Handicap Economy"
+ weak_handicap_economy_desc: "Multiplayer handicap bonus"
+ 
+ weak_handicap_military: "Weak Handicap Military"
+ weak_handicap_military_desc: "Multiplayer handicap bonus"
 
  smhm.2.name: "Test your might!"
  smhm.2.desc: "Select your skill level below to receive bonuses or penalties:"
@@ -33,18 +57,54 @@
  smhm.11.desc_01: "[smhm_handicap_country.GetRealName] has retracted their handicap."
  smhm.11.a: "So be it!"
 
- smhm.6.name: "Blessings of the Underdog"
- smhm.6.desc: "Your people, finding themselves at the bottom of the galactic order, have become impassioned to change their fate!"
+ smhm.6.name: "Blessings of the Underdog Technology"
+ smhm.6.desc: "Your people, finding themselves lagging the rest of the galaxy in technology, have become impassioned to change their fate!"
  smhm.6.a: "We are ready"
 
- smhm.7.name: "Blessings of the Underdog Fades"
- smhm.7.desc: "Your people no longer find themselves at the bottom of the galactic order and as such some of the fire in their eyes has begun to dim."
+ smhm.7.name: "Blessings of the Underdog Technology Fades"
+ smhm.7.desc: "Your people no longer find themselves lagging the rest of the galaxy in technology and as such some of the fire in their eyes has begun to dim."
  smhm.7.a: "The going will get tough..."
 
- smhm.9.name: "Curse of Icarus"
- smhm.9.desc: "Your people have become despondent and lacklustre. Success has come too easy and they have lost the spark in their eyes."
- smhm.9.a: "How unfortunate..."
+ smhm.9.name: "Blessings of the Underdog Economy"
+ smhm.9.desc: "Your people, finding themselves lagging the rest of the galaxy economically, have become impassioned to change their fate!"
+ smhm.9.a: "We are ready"
+
+ smhm.10.name: "Blessings of the Underdog Economy Fades"
+ smhm.10.desc: "Your people no longer find themselves lagging the rest of the galaxy economically and as such some of the fire in their eyes has begun to dim."
+ smhm.10.a: "The going will get tough..."
+
+ smhm.12.name: "Blessings of the Underdog Military"
+ smhm.12.desc: "Your people, finding themselves lagging the rest of the galaxy in military power, have become impassioned to change their fate!"
+ smhm.12.a: "We are ready"
+
+ smhm.13.name: "Blessings of the Underdog Military Fades"
+ smhm.13.desc: "Your people no longer find themselves lagging the rest of the galaxy in military power and as such some of the fire in their eyes has begun to dim."
+ smhm.13.a: "The going will get tough..."
+
+ smhm.15.name: "Curse of Icarus Technology"
+ smhm.15.desc: "Your people have become despondent and lacklustre. Scientific success has come too easy and they have lost the spark in their eyes."
+ smhm.15.a: "How unfortunate..."
  
- smhm.10.name: "Curse of Icarus Fades"
- smhm.10.desc: "Recent incidents have reverberated around your empire. We are no longer the power we once thought we were. A sense of crisis has emerged in your people and the despondence has given way to the hunger for action that led your empire to success decades ago."
- smhm.10.a: "To action!"
+ smhm.16.name: "Curse of Icarus Technology Fades"
+ smhm.16.desc: "Recent incidents have reverberated around your empire. We are no longer the scientific power we once thought we were. A sense of crisis has emerged in your people and the despondence has given way to the hunger for action that led your empire to success decades ago."
+ smhm.16.a: "To action!"
+
+ smhm.18.name: "Curse of Icarus Economy"
+ smhm.18.desc: "Your people have become despondent and lacklustre. Economic success has come too easy and they have lost the spark in their eyes."
+ smhm.18.a: "How unfortunate..."
+ 
+ smhm.19.name: "Curse of Icarus Economy Fades"
+ smhm.19.desc: "Recent incidents have reverberated around your empire. We are no longer the economic power we once thought we were. A sense of crisis has emerged in your people and the despondence has given way to the hunger for action that led your empire to success decades ago."
+ smhm.19.a: "To action!"
+
+ smhm.21.name: "Curse of Icarus Military"
+ smhm.21.desc: "Your people have become despondent and lacklustre. Military success has come too easy and they have lost the spark in their eyes."
+ smhm.21.a: "How unfortunate..."
+ 
+ smhm.22.name: "Curse of Icarus Military Fades"
+ smhm.22.desc: "Recent incidents have reverberated around your empire. We are no longer the military power we once thought we were. A sense of crisis has emerged in your people and the despondence has given way to the hunger for action that led your empire to success decades ago."
+ smhm.22.a: "To action!"
+ 
+ smhm.23.name: "Handicap Fades"
+ smhm.23.desc: "Your handicap fades."
+ smhm.23.a: "Ok"
