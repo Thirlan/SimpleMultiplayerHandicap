@@ -1,58 +1,119 @@
 ##########################################################################
 # Static Modifiers for the Simple Multiplayer Handicap Patch
 ##########################################################################
-curse_of_icarus = {
-	country_energy_produces_mult = -0.06
-	country_minerals_produces_mult = -0.06
-	country_food_produces_mult = -0.06
-	country_alloys_produces_mult = -0.06
-	country_consumer_goods_produces_mult = -0.06
-	trade_value_mult = -0.06
-	all_technology_research_speed = -0.06
-	country_unity_produces_mult = -0.06
-	planet_pop_assembly_mult = -0.06
-	pop_growth_speed = -0.06
-	ship_fire_rate_mult = -0.06
+
+strong_handicap_technology = {
+	all_technology_research_speed = -0.05
 }
 
-strong_handicap = {
-	country_energy_produces_mult = -0.06
-	country_minerals_produces_mult = -0.06
-	country_food_produces_mult = -0.06
-	country_alloys_produces_mult = -0.06
-	country_consumer_goods_produces_mult = -0.06
-	trade_value_mult = -0.06
-	all_technology_research_speed = -0.06
-	country_unity_produces_mult = -0.06
-	planet_pop_assembly_mult = -0.06
-	pop_growth_speed = -0.06
-	ship_fire_rate_mult = -0.06
+strong_handicap_economy = {
+	country_energy_produces_mult = -0.05
+	country_minerals_produces_mult = -0.05
+	country_food_produces_mult = -0.05
+	country_alloys_produces_mult = -0.05
+	country_consumer_goods_produces_mult = -0.05
+	trade_value_mult = -0.05
+	country_unity_produces_mult = -0.05
+	planet_pop_assembly_mult = -0.05
+	pop_growth_speed = -0.05
 }
 
-blessing_of_the_underdog = {
-	country_energy_produces_mult = 0.07
-	country_minerals_produces_mult = 0.07
-	country_food_produces_mult = 0.07
-	country_alloys_produces_mult = 0.07
-	country_consumer_goods_produces_mult = 0.07
-	trade_value_mult = 0.07
-	all_technology_research_speed = 0.07
-	country_unity_produces_mult = 0.07
-	planet_pop_assembly_mult = 0.07
-	pop_growth_speed = 0.07
-	ship_fire_rate_mult = 0.07
+strong_handicap_military = {
+	ship_fire_rate_mult = -0.05
+	ship_speed_mult = -0.05
+	ship_hull_mult = -0.05
+	ship_armor_mult = -0.05
+	ship_shield_mult = -0.05
+	ship_weapon_range_mult = -0.05
+	ship_weapon_damage = -0.05
+	army_damage_mult = -0.05
+	army_health = -0.05
+	army_morale = -0.05
 }
 
-weak_handicap = {
-	country_energy_produces_mult = 0.07
-	country_minerals_produces_mult = 0.07
-	country_food_produces_mult = 0.07
-	country_alloys_produces_mult = 0.07
-	country_consumer_goods_produces_mult = 0.07
-	trade_value_mult = 0.07
-	all_technology_research_speed = 0.07
-	country_unity_produces_mult = 0.07
-	planet_pop_assembly_mult = 0.07
-	pop_growth_speed = 0.07
-	ship_fire_rate_mult = 0.07
+weak_handicap_technology = {
+	all_technology_research_speed = 0.05
+}
+
+weak_handicap_economy = {
+	country_energy_produces_mult = 0.05
+	country_minerals_produces_mult = 0.05
+	country_food_produces_mult = 0.05
+	country_alloys_produces_mult = 0.05
+	country_consumer_goods_produces_mult = 0.05
+	trade_value_mult = 0.05
+	country_unity_produces_mult = 0.05
+	planet_pop_assembly_mult = 0.05
+	pop_growth_speed = 0.05
+}
+
+weak_handicap_military = {
+	ship_fire_rate_mult = 0.05
+	ship_speed_mult = 0.05
+	ship_hull_mult = 0.05
+	ship_armor_mult = 0.05
+	ship_shield_mult = 0.05
+	ship_weapon_range_mult = 0.05
+	ship_weapon_damage = 0.05
+	army_damage_mult = 0.10
+	army_health = 0.10
+	army_morale = 0.10
+}
+
+curse_of_icarus_technology = {
+	all_technology_research_speed = -0.05
+}
+
+curse_of_icarus_economy = {
+	country_energy_produces_mult = -0.05
+	country_minerals_produces_mult = -0.05
+	country_food_produces_mult = -0.05
+	country_alloys_produces_mult = -0.05
+	country_consumer_goods_produces_mult = -0.05
+	trade_value_mult = -0.05
+	country_unity_produces_mult = -0.05
+	planet_pop_assembly_mult = -0.05
+	pop_growth_speed = -0.05
+}
+
+curse_of_icarus_military = {
+	ship_fire_rate_mult = -0.05
+	ship_speed_mult = -0.05
+	ship_hull_mult = -0.05
+	ship_armor_mult = -0.05
+	ship_shield_mult = -0.05
+	ship_weapon_range_mult = -0.05
+	ship_weapon_damage = -0.05
+	army_damage_mult = -0.05
+	army_health = -0.05
+	army_morale = -0.05
+}
+
+blessing_of_the_underdog_technology = {
+	all_technology_research_speed = 0.05
+}
+
+blessing_of_the_underdog_economy = {
+	country_energy_produces_mult = 0.05
+	country_minerals_produces_mult = 0.05
+	country_food_produces_mult = 0.05
+	country_alloys_produces_mult = 0.05
+	country_consumer_goods_produces_mult = 0.05
+	trade_value_mult = 0.05
+	country_unity_produces_mult = 0.05
+	planet_pop_assembly_mult = 0.05
+	pop_growth_speed = 0.05
+}
+
+blessing_of_the_underdog_military = {
+	ship_fire_rate_mult = 0.05
+	ship_speed_mult = 0.05
+	ship_hull_mult = 0.05
+	ship_armor_mult = 0.05
+	ship_shield_mult = 0.05
+	ship_weapon_range_mult = 0.05
+	ship_weapon_damage = 0.05
+	army_damage_mult = 0.10
+	army_health = 0.10
+	army_morale = 0.10
 }
