@@ -8,12 +8,7 @@ on_game_start = {
 #on_monthly_pulse = {
 on_five_year_pulse = {
 	events = {
-		smhm.5
-		smhm.8
-		smhm.11
-		smhm.14
-		smhm.17
-		smhm.20
-		smhm.24
+		smhm.6
+		smhm.19
 	}
 }
