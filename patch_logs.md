@@ -1,12 +1,12 @@
-# 2023/07/15
+# 2023/07/18
 
 ## 1.7.0
 
-Modified the strongest and weakest penalties. The Weak option will give +10% to numerous options. The Strong option will only give -5%.
+Modified the strongest and weakest penalties. The Weak option will give +5% to numerous options. The Strong option will only give -5%.
 
 In addition the Blessing of the Underdog and the Curse of Icarus have been broken up into individual bonuses/penalties of Science, Economy and Military. The reason for this was Military was previously having an overweight effect to someone's overall score, as such someone who had no military but huge technology advantages was being recognized as weak. Breaking up the bonus/penalty into 3 separate parts also means now that if someone has a weak military they will get a bonus to military instead of to everything.
 
-Lastly, if someone has taken a weak handicap but they are doing very well (i.e. they are overwhelming to another player) then their bonus fades. Vice-versa for someone with a strong handicap.
+Lastly, if someone has taken a weak handicap but they are doing very well (i.e. they are superior to another player) then their bonus fades. Vice-versa for someone with a strong handicap.
 
 # 2023/05/11
 

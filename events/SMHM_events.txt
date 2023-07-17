@@ -193,9 +193,7 @@ event = {
 			limit = {
 				#is_ai = no
 			}
-			log = "Checking if we should bless or curse [owner.GetName]"
 			save_event_target_as = current_player
-			
 			set_variable = { which = exists_overwhelming_opponent_technology value = 0 }
 			set_variable = { which = exists_overwhelming_opponent_economy value = 0 }
 			set_variable = { which = exists_overwhelming_opponent_military value = 0 }
@@ -216,6 +214,7 @@ event = {
 				if = {
 					limit = {
 						#is_ai = no
+						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
 							category = technology
@@ -256,6 +255,7 @@ event = {
 				if = {
 					limit = {
 						#is_ai = no
+						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
 							category = economy
@@ -298,6 +298,7 @@ event = {
 				if = {
 					limit = {
 						#is_ai = no
+						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
 							category = fleet
@@ -339,24 +340,27 @@ event = {
 			}
 		
 			# Technology
-			if = { 
+			if = {
 				limit = {
 					event_target:current_player = {
 						has_modifier = blessing_of_the_underdog_technology
 					}
-					check_variable = {
-						which = exists_overwhelming_opponent_technology
-						value = 0
-					}
-					check_variable = {
-						which = exists_weaker_opponent_technology
-						value = 1
-					}
 				}
-				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.8
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_overwhelming_opponent_technology
+							value = 0
+						}
+						check_variable = {
+							which = exists_weaker_opponent_technology
+							value = 1
+						}
+					}
+					event_target:current_player = {
+						country_event = {
+							id = smhm.8
+						}
 					}
 				}
 			}
@@ -381,24 +385,27 @@ event = {
 			}
 			
 			# Economy
-			if = { 
+			if = {
 				limit = {
 					event_target:current_player = {
 						has_modifier = blessing_of_the_underdog_economy
 					}
-					check_variable = {
-						which = exists_overwhelming_opponent_economy
-						value = 0
-					}
-					check_variable = {
-						which = exists_weaker_opponent_economy
-						value = 1
-					}
 				}
-				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.10
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_overwhelming_opponent_economy
+							value = 0
+						}
+						check_variable = {
+							which = exists_weaker_opponent_economy
+							value = 1
+						}
+					}
+					event_target:current_player = {
+						country_event = {
+							id = smhm.10
+						}
 					}
 				}
 			}
@@ -423,24 +430,27 @@ event = {
 			}
 			
 			# Military
-			if = { 
+			if = {
 				limit = {
 					event_target:current_player = {
 						has_modifier = blessing_of_the_underdog_military
 					}
-					check_variable = {
-						which = exists_overwhelming_opponent_military
-						value = 0
-					}
-					check_variable = {
-						which = exists_weaker_opponent_military
-						value = 1
-					}
 				}
-				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.12
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_overwhelming_opponent_military
+							value = 0
+						}
+						check_variable = {
+							which = exists_weaker_opponent_military
+							value = 1
+						}
+					}
+					event_target:current_player = {
+						country_event = {
+							id = smhm.12
+						}
 					}
 				}
 			}
@@ -474,15 +484,20 @@ event = {
 					event_target:current_player = {
 						has_modifier = curse_of_icarus_technology
 					}
-					check_variable = {
-						which = exists_stronger_opponent_technology
-						value = 1
-					}
 				}
 				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.14
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_stronger_opponent_technology
+							value = 1
+						}
+					}
+				
+					event_target:current_player = {
+						country_event = {
+							id = smhm.14
+						}
 					}
 				}
 			}
@@ -503,20 +518,25 @@ event = {
 			}
 			
 			# Economy
-			if = { 
+			if = {
 				limit = {
 					event_target:current_player = {
 						has_modifier = curse_of_icarus_economy
 					}
-					check_variable = {
-						which = exists_stronger_opponent_economy
-						value = 1
-					}
 				}
 				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.16
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_stronger_opponent_economy
+							value = 1
+						}
+					}
+				
+					event_target:current_player = {
+						country_event = {
+							id = smhm.16
+						}
 					}
 				}
 			}
@@ -537,20 +557,25 @@ event = {
 			}
 			
 			# Military
-			if = { 
+			if = {
 				limit = {
 					event_target:current_player = {
 						has_modifier = curse_of_icarus_military
 					}
-					check_variable = {
-						which = exists_stronger_opponent_military
-						value = 1
-					}
 				}
 				
-				event_target:current_player = {
-					country_event = {
-						id = smhm.18
+				if = {
+					limit = {
+						check_variable = {
+							which = exists_stronger_opponent_military
+							value = 1
+						}
+					}
+				
+					event_target:current_player = {
+						country_event = {
+							id = smhm.18
+						}
 					}
 				}
 			}
@@ -878,7 +903,7 @@ event = {
 				}
 				if = {
 					limit = {
-						years_passed > 20
+						years_passed > 15
 						event_target:current_handicap_player = {
 							has_modifier = weak_handicap_technology
 						}
@@ -897,7 +922,7 @@ event = {
 				}
 				if = {
 					limit = {
-						years_passed > 20
+						years_passed > 15
 						event_target:current_handicap_player = {
 							has_modifier = weak_handicap_economy
 						}
@@ -916,7 +941,7 @@ event = {
 				}
 				if = {
 					limit = {
-						years_passed > 20
+						years_passed > 15
 						event_target:current_handicap_player = {
 							has_modifier = weak_handicap_military
 						}
@@ -935,7 +960,7 @@ event = {
 				}
 				if = {
 					limit = {
-						years_passed > 20
+						years_passed > 15
 						event_target:current_handicap_player = {
 							has_modifier = strong_handicap_technology
 						}
@@ -954,7 +979,7 @@ event = {
 				}
 				if = {
 					limit = {
-						years_passed > 20
+						years_passed > 15
 						event_target:current_handicap_player = {
 							has_modifier = strong_handicap_economy
 						}
