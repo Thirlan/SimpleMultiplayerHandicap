@@ -191,7 +191,7 @@ event = {
 	immediate = {
 		every_playable_country = {
 			limit = {
-				#is_ai = no
+				is_ai = no
 			}
 			save_event_target_as = current_player
 			set_variable = { which = exists_overwhelming_opponent_technology value = 0 }
@@ -213,7 +213,7 @@ event = {
 				
 				if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
@@ -227,7 +227,7 @@ event = {
 				}
 				else_if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						relative_power = {
 							who = event_target:current_player
 							category = technology
@@ -254,7 +254,7 @@ event = {
 				
 				if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
@@ -269,7 +269,7 @@ event = {
 				}
 				else_if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						relative_power = {
 							who = event_target:current_player
 							category = economy
@@ -297,7 +297,7 @@ event = {
 				
 				if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						years_passed > 30
 						relative_power = {
 							who = event_target:current_player
@@ -312,7 +312,7 @@ event = {
 				}
 				else_if = {
 					limit = {
-						#is_ai = no
+						is_ai = no
 						relative_power = {
 							who = event_target:current_player
 							category = fleet
@@ -879,7 +879,7 @@ event = {
 	immediate = {
 		every_playable_country = {
 			limit = {
-				#is_ai = no
+				is_ai = no
 				OR = {
 					has_modifier = weak_handicap_technology
 					has_modifier = weak_handicap_economy
@@ -896,7 +896,7 @@ event = {
 			
 			every_playable_country = {
 				limit = {
-					#is_ai = no
+					is_ai = no
 					NOT = {
 						is_same_empire = event_target:current_player
 					}
