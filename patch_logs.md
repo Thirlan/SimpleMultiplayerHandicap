@@ -1,3 +1,9 @@
+# 2023/07/19
+
+## 1.7.1
+
+Removed the debug parameters
+
 # 2023/07/18
 
 ## 1.7.0
