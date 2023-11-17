@@ -1,7 +1,7 @@
-version="1.7.1"
+version="1.9.0"
 tags={
 	"Balance"
 }
 name="Simple Multiplayer Handicap Mod"
-supported_version="3.8.*"
+supported_version="3.10.*"
 path="C:/Users/Marc/Documents/Paradox Interactive/Stellaris/mod/SMHM"
