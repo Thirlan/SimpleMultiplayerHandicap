@@ -1,3 +1,9 @@
+# 2024/06/27
+
+## 1.11.0
+
+After observing the mod in action for a while, updated the buffs for Blessings of the Underdog and the penalties for Curse of Icarus.
+
 # 2024/05/18
 
 ## 1.10.1

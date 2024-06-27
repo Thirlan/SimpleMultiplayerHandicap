@@ -20,10 +20,10 @@ In addition to these, if a player picks weak or strong it will be broadcasted to
 
 Players will be given a second chance to confirm if they picked Weak or Strong after about 3 months. Just to make sure they didn't misclick.
 
-On top of these handicaps, every 5 years the game will give another -5% penalty, the Curse of Icarus, to specifical science, economy or military if a player is stronger than all the AI empires in a given category.
+On top of these handicaps, every 5 years the game will give another -10% penalty, the Curse of Icarus, to specifical science, economy or military if a player is stronger than all the AI empires in a given category.
 
-Inversely a 5% bonus, Blessings of the Underdog, to either science, economy or military will be given to the player that is weakest in a given category. This dynamic bonus/penalty will help further adjust the handicaps in case someone misjudged how strong or weak they are as well as help weak players stay in the game for the long run.
+Inversely a +10% bonus, Blessings of the Underdog, to either science, economy or military will be given to the player that is weakest in a given category. This dynamic bonus/penalty will help further adjust the handicaps in case someone misjudged how strong or weak they are as well as help weak players stay in the game for the long run.
 
-The combined together the differences are such that the strongest and weakest player could a 20% gap between each other so that the weakest players have a fighting chance against stronger players.
+The combined together the differences are such that the strongest and weakest player could a 30% gap between each other so that the weakest players have a fighting chance against stronger players.
 
 Handicaps can also permanently fade. If a weak player does well then their handicap will fade. The same goes for a strong player. If they are doing poorly the handicap will fade.
