@@ -12,10 +12,10 @@ strong_handicap_economy = {
 	country_food_produces_mult = -0.05
 	country_alloys_produces_mult = -0.05
 	country_consumer_goods_produces_mult = -0.05
-	trade_value_mult = -0.05
+	country_trade_produces_mult = -0.05
 	country_unity_produces_mult = -0.05
 	planet_pop_assembly_mult = -0.05
-	pop_growth_speed = -0.05
+	logistic_growth_mult = -0.05
 }
 
 strong_handicap_military = {
@@ -41,10 +41,10 @@ weak_handicap_economy = {
 	country_food_produces_mult = 0.05
 	country_alloys_produces_mult = 0.05
 	country_consumer_goods_produces_mult = 0.05
-	trade_value_mult = 0.05
+	country_trade_produces_mult = 0.05
 	country_unity_produces_mult = 0.05
 	planet_pop_assembly_mult = 0.05
-	pop_growth_speed = 0.05
+	logistic_growth_mult = 0.05
 }
 
 weak_handicap_military = {
@@ -70,10 +70,10 @@ curse_of_icarus_economy = {
 	country_food_produces_mult = -0.10
 	country_alloys_produces_mult = -0.10
 	country_consumer_goods_produces_mult = -0.10
-	trade_value_mult = -0.10
+	country_trade_produces_mult = -0.10
 	country_unity_produces_mult = -0.10
 	planet_pop_assembly_mult = -0.10
-	pop_growth_speed = -0.10
+	logistic_growth_mult = -0.10
 }
 
 curse_of_icarus_military = {
@@ -99,10 +99,10 @@ blessing_of_the_underdog_economy = {
 	country_food_produces_mult = 0.10
 	country_alloys_produces_mult = 0.10
 	country_consumer_goods_produces_mult = 0.10
-	trade_value_mult = 0.10
+	country_trade_produces_mult = 0.10
 	country_unity_produces_mult = 0.10
 	planet_pop_assembly_mult = 0.10
-	pop_growth_speed = 0.10
+	logistic_growth_mult = 0.10
 }
 
 blessing_of_the_underdog_military = {
