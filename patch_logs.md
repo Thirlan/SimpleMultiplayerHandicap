@@ -1,3 +1,9 @@
+# 2025/09/26
+
+## 1.15.0
+
+Simple upgrade to 4.1.1 and removal of logs older than a year
+
 # 2025/08/01
 
 ## 1.14.0
